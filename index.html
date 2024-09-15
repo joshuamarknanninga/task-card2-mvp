@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Card Kanban Board</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="kanban-board">
+        <div class="kanban-column" id="todo">
+            <h2>To Do</h2>
+            <button onclick="createTask('todo')">Add Task</button>
+            <div class="kanban-column-content" id="todo-content" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+        <div class="kanban-column" id="in-progress">
+            <h2>In Progress</h2>
+            <button onclick="createTask('in-progress')">Add Task</button>
+            <div class="kanban-column-content" id="in-progress-content" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+        <div class="kanban-column" id="done">
+            <h2>Done</h2>
+            <button onclick="createTask('done')">Add Task</button>
+            <div class="kanban-column-content" id="done-content" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+    </div>
+
+    <!-- Modal for creating/editing tasks -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Create/Edit Task</h3>
+            <input type="text" id="task-title" placeholder="Task Title">
+            <textarea id="task-desc" placeholder="Task Description"></textarea>
+            <button onclick="saveTask()">Save</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
