@@ -47,7 +47,27 @@ function renderTasks() {
         taskElement.innerHTML = `<h4>${task.title}</h4><p>${task.desc}</p>`;
         taskElement.onclick = () => editTask(task);
 
+        // Apply the color based on the column
+        applyTaskColor(taskElement, task.column);
+
         document.getElementById(`${task.column}-content`).appendChild(taskElement);
+    }
+}
+
+function applyTaskColor(taskElement, column) {
+    switch (column) {
+        case 'todo':
+            taskElement.style.backgroundColor = '#ffffff'; // White for "To Do"
+            taskElement.style.borderColor = '#ccc';
+            break;
+        case 'in-progress':
+            taskElement.style.backgroundColor = '#e0f7fa'; // Green for "In Progress"
+            taskElement.style.borderColor = '#00796b';
+            break;
+        case 'done':
+            taskElement.style.backgroundColor = '#ffebee'; // Red for "Done"
+            taskElement.style.borderColor = '#b71c1c';
+            break;
     }
 }
 
